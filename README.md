@@ -46,6 +46,6 @@ If you have any questions or suggestions, please feel free to contact me:
 
 - Your Name
 - Email: sandipkurmi0@gmail.com
-- GitHub: [github.com/your-username](https://github.com/SandipKurmi)
+- GitHub: [github.com/sandipkurmi](https://github.com/SandipKurmi)
 
 Feel free to modify the structure according to your specific project requirements. Happy coding!
