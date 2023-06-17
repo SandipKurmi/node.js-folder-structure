@@ -7,6 +7,28 @@ class CategoryService extends Service {
     super(model);
   }
 
+  async search(req) {
+    try {
+      const { name } = req.query;
+      const data = await this.model.find({
+        name: { $regex: name, $options: 'i' },
+      });
+      return {
+        error: false,
+        message: 'Successfully fetched data',
+        statusCode: 200,
+        data: data,
+      };
+    } catch (error) {
+      return {
+        error: true,
+        message: error.message,
+        statusCode: 400,
+        data: null,
+      };
+    }
+  }
+
   async insertCsvData(req) {
     try {
       const results = await parseCsvData(req.file.path);

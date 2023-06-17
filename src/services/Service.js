@@ -11,7 +11,6 @@ class Service {
   }
 
   async getAll(query) {
-
     let { skip, limit } = query;
     skip = skip ? Number(skip) : 1;
     limit = limit ? Number(limit) : 10;
@@ -29,13 +28,16 @@ class Service {
         // console.log('not able to generate mongoose id with content', id);
       }
     }
+    //not get inactives data
+    query.status = { $ne: 'inactive' };
 
     try {
       const items = await this.model
         .find(query)
         .select(['-password'])
         .skip(skip)
-        .limit(limit);
+        .limit(limit)
+        .sort({ createdAt: -1 });
       const total = await this.model.countDocuments();
 
       return {
@@ -43,7 +45,7 @@ class Service {
         message: 'request successfullly',
         statusCode: 200,
         total,
-        data: items
+        data: items,
       };
     } catch (error) {
       return {
@@ -54,7 +56,6 @@ class Service {
       };
     }
   }
-
 
   async get(id) {
     try {
@@ -115,7 +116,11 @@ class Service {
 
   async delete(id) {
     try {
-      const item = await this.model.findByIdAndDelete(id);
+      const item = await this.model.findByIdAndUpdate(
+        id,
+        { status: 'inactive' },
+        { new: true },
+      );
       if (!item)
         return {
           error: true,
@@ -139,7 +144,6 @@ class Service {
       };
     }
   }
-
 }
 
 export default Service;

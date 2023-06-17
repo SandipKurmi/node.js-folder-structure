@@ -14,6 +14,11 @@ class CategoryModel {
           type: String,
           required: [true, 'Please add a description'],
         },
+        status: {
+          type: String,
+          enum: ['active', 'inactive'],
+          default: 'active',
+        },
       },
       {
         timestamps: true,

@@ -14,7 +14,6 @@ class ProductModel {
           type: String,
           required: [true, 'Please add a description'],
         },
-
         price: {
           type: Number,
           required: [true, 'Please add a price'],
@@ -25,11 +24,13 @@ class ProductModel {
         },
         color: {
           type: String,
-          required: [true, 'Please add a color'],
+          enum: ['red', 'blue', 'green', 'black', 'white'],
+          default: 'red',
         },
         size: {
           type: String,
-          required: [true, 'Please add a size'],
+          enum: ['S', 'M', 'L', 'XL', 'XXL'],
+          default: 'S',
         },
         quantity: {
           type: Number,
@@ -44,6 +45,11 @@ class ProductModel {
           type: Schema.Types.ObjectId,
           ref: 'users',
           required: true,
+        },
+        status: {
+          type: String,
+          enum: ['active', 'inactive'],
+          default: 'active',
         },
       },
       {

@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { verify } from 'jsonwebtoken';
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 // dotenv.config();
 
 export default (req, res, next) => {
@@ -44,6 +44,6 @@ exports.authorize = (...roles) => {
         statusCode: 403,
       };
     }
-    next()
-  }
-}
+    next();
+  };
+};
