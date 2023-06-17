@@ -17,7 +17,6 @@
   "dependencies": {
     "@sendgrid/mail": "^7.6.0",
     "bcrypt": "^5.0.1",
-    "cachegoose": "^8.0.0",
     "cookie-parser": "~1.4.4",
     "core-js": "^3.8.1",
     "cors": "^2.8.5",
@@ -56,6 +55,6 @@
     "prettier": "^2.2.1"
   },
   "engines": {
-    "node": "15.X"
+    "node": "16.X"
   }
 }
