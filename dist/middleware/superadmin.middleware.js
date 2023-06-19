@@ -4,19 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-
 var _jsonwebtoken = require("jsonwebtoken");
-
 // eslint-disable-next-line import/no-extraneous-dependencies
 var _default = function _default(req, res, next) {
   try {
     if (req.headers.authorization) {
       var token = req.headers.authorization.replace('Bearer ', '');
-
       try {
         var decoded = (0, _jsonwebtoken.verify)(token, process.env.JWT_SECRET);
         req.user = decoded;
-
         if (decoded.role == 'superadmin') {
           next();
         } else {
@@ -48,5 +44,4 @@ var _default = function _default(req, res, next) {
     });
   }
 };
-
 exports["default"] = _default;

@@ -1,8 +1,7 @@
 'use strict';
 
-var crypto = require('crypto'); //const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY; // Must be 256 bits (32 characters)
-
-
+var crypto = require('crypto');
+//const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY; // Must be 256 bits (32 characters)
 var ENCRYPTION_KEY = 'XwPp9xazJ0ku5CZnlmgAx2Dld8SHkAeT';
 var IV_LENGTH = 16; // For AES, this is always 16
 
@@ -13,7 +12,6 @@ function encrypt(text) {
   encrypted = Buffer.concat([encrypted, cipher["final"]()]);
   return iv.toString('hex') + ':' + encrypted.toString('hex');
 }
-
 function decrypt(text) {
   var textParts = text.split(':');
   var iv = Buffer.from(textParts.shift(), 'hex');
@@ -23,7 +21,6 @@ function decrypt(text) {
   decrypted = Buffer.concat([decrypted, decipher["final"]()]);
   return decrypted.toString();
 }
-
 module.exports = {
   decrypt: decrypt,
   encrypt: encrypt

@@ -15,25 +15,23 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var UserModel = /*#__PURE__*/function () {
-  function UserModel() {
-    _classCallCheck(this, UserModel);
+var CategoryModel = /*#__PURE__*/function () {
+  function CategoryModel() {
+    _classCallCheck(this, CategoryModel);
   }
-  _createClass(UserModel, [{
+  _createClass(CategoryModel, [{
     key: "initSchema",
     value:
     // eslint-disable-next-line class-methods-use-this
     function initSchema() {
       var schema = new _mongoose.Schema({
-        userName: {
+        name: {
           type: String,
-          required: [true, 'Please add a User Name'],
-          unique: true
+          required: [true, 'Please add a name']
         },
-        password: {
+        description: {
           type: String,
-          required: [true, 'Please add a Password'],
-          minlength: 5
+          required: [true, 'Please add a description']
         },
         status: {
           type: String,
@@ -44,23 +42,23 @@ var UserModel = /*#__PURE__*/function () {
         timestamps: true
       });
       schema.plugin(_mongooseUniqueValidator["default"]);
-      _mongoose["default"].model('users', schema);
+      _mongoose["default"].model('categorys', schema);
     }
   }, {
     key: "getInstance",
     value: function getInstance() {
       this.initSchema();
-      return _mongoose["default"].model('users');
+      return _mongoose["default"].model('categorys');
     }
 
     // eslint-disable-next-line class-methods-use-this
   }, {
     key: "getModel",
     value: function getModel() {
-      return _mongoose["default"].model('users');
+      return _mongoose["default"].model('categorys');
     }
   }]);
-  return UserModel;
+  return CategoryModel;
 }();
-var _default = UserModel;
+var _default = CategoryModel;
 exports["default"] = _default;
