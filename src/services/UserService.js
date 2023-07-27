@@ -14,7 +14,7 @@ class UserService extends Service {
       if (!(userName && password)) {
         return {
           error: true,
-          message: 'userName and phoneNumber are required',
+          message: 'userName and Password are required',
           statusCode: 400,
           data: null,
         };
@@ -24,7 +24,7 @@ class UserService extends Service {
       if (existUser) {
         return {
           error: true,
-          message: 'phoneNumber already exist',
+          message: 'UserName already exist',
           statusCode: 400,
           data: null,
         };

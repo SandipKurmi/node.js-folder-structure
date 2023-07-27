@@ -47,7 +47,7 @@ var UserService = /*#__PURE__*/function (_Service) {
               }
               return _context.abrupt("return", {
                 error: true,
-                message: 'userName and phoneNumber are required',
+                message: 'userName and Password are required',
                 statusCode: 400,
                 data: null
               });
@@ -64,7 +64,7 @@ var UserService = /*#__PURE__*/function (_Service) {
               }
               return _context.abrupt("return", {
                 error: true,
-                message: 'phoneNumber already exist',
+                message: 'UserName already exist',
                 statusCode: 400,
                 data: null
               });
