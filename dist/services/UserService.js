@@ -121,7 +121,7 @@ var UserService = /*#__PURE__*/function (_Service) {
               }
               return _context2.abrupt("return", {
                 error: true,
-                message: 'userName and phoneNumber are required',
+                message: 'userName and password are required',
                 statusCode: 400,
                 data: null
               });

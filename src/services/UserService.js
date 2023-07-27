@@ -61,7 +61,7 @@ class UserService extends Service {
       if (!(userName && password)) {
         return {
           error: true,
-          message: 'userName and phoneNumber are required',
+          message: 'userName and password are required',
           statusCode: 400,
           data: null,
         };
